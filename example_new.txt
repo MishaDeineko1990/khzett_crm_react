@@ -1,0 +1,194 @@
+1. $ npx create-react-app my-app     //create react aplication
+2. $ yarn start       // start react aplication
+
+3. 
+import logo from './logo.svg';
+import React from 'react';
+import './App.css';
+import Header from './components/Header/Header';
+import Contents from './components/Contents/Contents';
+import {BrowserRouter, Route, NavLink} from "react-router-dom";
+import state from "./redux/state";
+
+// import React from 'react';
+// import s from './Correspondence.module.css';
+// import Dialogs from './Dialogs/Dialogs';
+// import Mes from './Mes/Mes';
+
+function App(props) {
+  return (
+    <BrowserRouter>  
+      <div>
+        <Header />
+        <Contents state={state}/>
+        {/* <Route path='/profile' render={ () => <Profile state={props.state.profilePage} /> }/> */}
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+
+*********** emmet react https://medium.com/@eshwaren/enable-emmet-support-for-jsx-in-visual-studio-code-react-f1f5dfe8809c
+
+lasson 16 PROPS
+
+example 
+<Header name = "MIsha" age = "30"/>
+
+cost Header = (props) => {
+    return(
+        <div>
+            <span> {props.name} </span>
+            <span> {props.age} </span>
+        </div>
+    )
+}
+
+-----------------------------------------------------------------
+
+lasson 19 
+npm i react-router-dom -save
+
+
+import {BrowserRouter, Route} from "react-router-dom"
+
+
+    <BrowserRouter>
+        <div>
+          <Route path='/profile' component={Profile}/>
+          <Route path='/message' component={Message}/>
+        <div />
+    </BrowserRouter>
+
+    точний шлях <Route exact path=' 
+
+
+change props acros map
+    let dialogsElements = props.state.dialogs.map( d => <DialogItem name={d.name} id={d.id} />  );
+    let messagesElements = props.state.messages.map( m => <Message message={m.message}/> );
+    
+    return (
+        <div className={s.dialogs}>
+            <div className={s.dialogsItems}>
+                { dialogsElements }
+            </div>
+            <div className={s.messages}>
+                { messagesElements }
+            </div>
+        </div>
+    )
+}
+
+----------------------------------------------------------------------------------------------------
+import {NavLink} from "react-router-dom";
+
+const DialogItem = (props) => {
+    let path = "/dialogs/" + props.id;
+
+    return <div className={s.dialog + ' ' + s.active}>
+        <NavLink to={path}>{props.name}</NavLink>
+    </div>
+}
+---------------------------------------------------------------------------------------------------
+
+FUNCTION IN STATE.JS 
+
+export let add_post = (post_message) => {
+    let new_post = {
+        id: state.profilePage.posts.length + 1, 
+        message: post_message,
+        likesCount: 0
+    }    
+    state.profilePage.posts.push(new_post)
+    rerenderEntireTree(state);
+}
+
+
+
+--------------------------------------------------
+
+SEND FUCTION IN INDEX.JS ACROS PROPS
+
+import {rerenderEntireTree} from "./render";
+import state from "./redux/state";
+
+rerenderEntireTree(state);
+
+-----------------------------------------------------------
+
+
+RENDER.JS
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import {add_post} from './redux/state';
+import {BrowserRouter} from "react-router-dom";
+
+export let rerenderEntireTree = (state) => {
+    ReactDOM.render(
+        <React.StrictMode>
+          <App state={state} add_post={add_post}/>
+        </React.StrictMode>,
+        document.getElementById('root')
+      );
+}
+
+---------------------------------------------------------------------------------------------------
+
+crete and send textarea 
+
+
+
+
+import React from 'react';
+import s from './Post.module.css'
+import {NavLink} from "react-router-dom";
+
+
+
+const Post = (props) =>{
+
+    let posts = props.state.posts.map( d => 
+        <div className={s.wrap}>
+            <div>
+                {d.message}
+            </div>
+            <div>
+                Like; {d.likesCount}
+            </div>        
+        </div> )
+        
+    let newPostElement = React.createRef();  //create refference
+    let add_post = () => {
+        debugger;
+        let text = newPostElement.current.value;
+        props.add_post(text);
+        newPostElement.current.value = ''; 
+    }
+
+    return (
+        <div>
+            <div>
+                <div>
+                    <textarea ref={newPostElement}></textarea>        //confirmation refference reactS
+                </div>
+                <div>
+                    <button onClick={ add_post }>Add post</button>
+                </div>
+            </div>          
+            {posts}  
+
+        </div>  
+        
+    )
+}
+export default Post;
+
+---------------------------------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=gb7gMluAeao&list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8 - cource
+https://github.com/it-kamasutra/react-way-of-samurai  git repositorie

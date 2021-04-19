@@ -1,0 +1,48 @@
+1. $ npx create-react-app my-app     //create react aplication
+2. $ yarn start       // start react aplication
+
+3. open src/App.js
+    chande class on 
+        import logo from './logo.svg';
+        import './App.css';
+
+        const App = () => {
+        return (
+            <div className = "App">
+            <h1>Symple js</h1>
+            </div>
+        );
+        }
+
+        export default App;
+
+
+*********** emmet react https://medium.com/@eshwaren/enable-emmet-support-for-jsx-in-visual-studio-code-react-f1f5dfe8809c
+
+lasson 16 PROPS
+
+example 
+<Header name = "MIsha" age = "30"/>
+
+cost Header = (props) => {
+    return(
+        <div>
+            <span> {props.name} </span>
+             <span> {props.age} </span>
+        </div>
+    )
+}
+
+lasson 19 
+npm i react-router-dom -save
+
+
+import {BrowserRouter, Route} from "react-router-dom"
+
+
+    <BrowserRouter>
+        <div>
+          <Route path='/profile' component={Profile}/>
+          <Route path='/message' component={Message}/>
+        <div />
+    </BrowserRouter>
