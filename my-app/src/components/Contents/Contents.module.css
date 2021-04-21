@@ -1,4 +1,4 @@
 .contents_wrap{
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 20% 90%;
 }
