@@ -47,8 +47,9 @@ const Zvit = () =>{
                 var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);   
                 var oJS = XLS.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);   
     
-                $("#my_file_output").html(sCSV);
-                console.log(oJS)
+                // $("#my_file_output").html(sCSV);
+                // console.log(oJS)
+                buld_table (oJS)
             });
         };
     
@@ -58,6 +59,31 @@ const Zvit = () =>{
 
 
 
+
+
+    let newSTR = ""
+    function buld_table (data){
+        data.forEach(its=>{
+         
+
+            
+            
+            for(let i=0; i<20; i++){
+                if(its["__EMPTY"]){
+                    console.log("object "+i);
+                    // newSTR = its["__EMPTY"].replace("  Шнекова спіраль", "Шнекова спіраль");
+                }else{
+                    newSTR= ""
+                }
+    
+            }
+            
+            console.log(newSTR);
+            // console.log(typeof(newSTR));
+            newSTR = ""
+        })
+
+    }
 
 
 
