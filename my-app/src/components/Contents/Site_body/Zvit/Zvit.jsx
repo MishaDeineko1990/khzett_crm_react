@@ -102,20 +102,22 @@ const Zvit = () =>{
             // console.log(its);
             let arr1 = []
             let arr_encode
+            let list_el = ['__EMPTY', '__EMPTY_1', '__EMPTY_2', '__EMPTY_3', '__EMPTY_4', '__EMPTY_5']
+
+            list_el.forEach(its2=>{
 
 
+            if (its.its2){
 
-
-
-            if (its.__EMPTY){
-
-                arr_encode = debag_encode(its.__EMPTY)
+                arr_encode = debag_encode(its.its2)
                 arr1.push(arr_encode)
                 arr_encode = ""
             }
             else{
                 arr1.push(" ")
             }
+
+            })
 
             
             
