@@ -73,6 +73,17 @@ const Zvit = () =>{
         })
 
         el = el.replace(/[³]/g, "і")
+
+        el = el.replace(/[\[]/g, " ")
+        el = el.replace(/[\]]/g, " ")
+        el = el.replace(/[\{}]/g, " ")
+        el = el.replace(/[\}]/g, " ")
+        el = el.replace(/[\()}]/g, " ")
+        el = el.replace(/[\)]/g, " ")
+
+        el = el.replace(/ м/gi, 'м');
+
+        el = el.replace(/[²]/g, "І")
         el = el.replace(/[¿]/g, "ї")
         el = el.replace(/[º]/g, "є")
         el = el.replace(/[÷]/g, "ч")
@@ -80,7 +91,7 @@ const Zvit = () =>{
         el = el.replace(/[²]/g, "І")
         el = el.replace(/[ª]/g, "Є")
         el = el.replace(/[×]/g, "Ч")
-        el = el.replace(/[  ]/g, " ")
+        el = el.replace(/\s\s+/g, ' ');
         
         return el    
   
@@ -96,83 +107,97 @@ const Zvit = () =>{
         // }
 
          let arr_supp = []
+         let check_empty = 0
 
         data.forEach(its=>{    
             
             // console.log(its);
             let arr1 = []
             let arr_encode
-            let list_el = ['__EMPTY', '__EMPTY_1', '__EMPTY_2', '__EMPTY_3', '__EMPTY_4', '__EMPTY_5']
-
-            list_el.forEach(its2=>{
 
 
-            if (its.its2){
+            if (its.__EMPTY ){
 
-                arr_encode = debag_encode(its.its2)
-                arr1.push(arr_encode)
-                arr_encode = ""
+                add_ellemet_to_arrey(its.__EMPTY)
+
             }
             else{
-                arr1.push(" ")
+                add_empty_ellement()
             }
 
-            })
+                        if ( its.__EMPTY_1 ){
 
+                            add_ellemet_to_arrey(its.__EMPTY_1)
             
+                        }
+                        else{
+                            add_empty_ellement()
+                        }
+                          
+
+            if (its.__EMPTY_2 ){
+
+                add_ellemet_to_arrey(its.__EMPTY_2)
+
+            }
+            else{
+                add_empty_ellement()
+            }
+
+                        if (its.__EMPTY_3){
+
+                            add_ellemet_to_arrey(its.__EMPTY_3)
             
-            
-            // if (its.__EMPTY_1){
-            //     arr1.push(its.__EMPTY_1)
-            // }
-            // else{
-            //     arr1.push(" ")
-            // }
+                        }
+                        else{
+                            add_empty_ellement()
+                        }
 
-            
-            
-            
-            
-            // if (its.__EMPTY_2){
-            //     arr1.push(its.__EMPTY_2)
-            // }
-            // else{
-            //     arr1.push(" ")
-            // }
-            
+            if (its.__EMPTY_4){
 
+                add_ellemet_to_arrey(its.__EMPTY_4)
 
+            }
+            else{
+                add_empty_ellement()
+            }
 
-            // if (its.__EMPTY_3){
-            //     arr1.push(its.__EMPTY_3)
-            // }
-            // else{
-            //     arr1.push(" ")
-            // }
-            
+                            if (its.__EMPTY_5){
 
-
-
-            // if (its.__EMPTY_4){
-            //     arr1.push(its.__EMPTY_4)
-            // }
-            // else{
-            //     arr1.push(" ")
-            // }
-
-
-
-
-            // if (its.__EMPTY_5){
-            //     arr1.push(its.__EMPTY_5)
-            // }
-            // else{
-            //     arr1.push(" ")
-            // }
-            
-            // console.log(arr1)
-
+                                add_ellemet_to_arrey(its.__EMPTY_5)
                 
+                            }
+                            else{
+                                add_empty_ellement()
+                            }
+
+            if (its.__EMPTY_6){
+
+                add_ellemet_to_arrey(its.__EMPTY_6)
+
+            }
+            else{
+                add_empty_ellement()
+            }
+
+
+            function add_ellemet_to_arrey(data){
+
+                arr_encode = debag_encode(data)
+                arr1.push(arr_encode)
+                arr_encode = ""
+
+            }
+
+            function add_empty_ellement (){
+
+                if (check_empty==0){
+                    arr1.push(" ")
+                    check_empty = 1
+                }
+
+            }
+             
 
 
 
@@ -184,6 +209,7 @@ const Zvit = () =>{
 
             
             arr_supp.push(arr1)
+            check_empty = 0
 
             
 
@@ -193,7 +219,37 @@ const Zvit = () =>{
             
         })
 
-        console.log(arr_supp)
+        let arr_shs_spiral_part = []
+        let arr_shs_spiral = []
+
+
+        function siparate_auger_screw(data){
+            
+            data.forEach(its=>{
+                if(its[0].includes('Шнекова спіраль')){
+                    arr_shs_spiral_part.push(its[0]) 
+                }
+                else{
+                    if (its[0].includes('Кіл-ть') && arr_shs_spiral_part.length>0){
+                        arr_shs_spiral_part.push(its[0], its[1], its[2], its[3], its[4], its[5], its[6] )
+                        arr_shs_spiral.push(arr_shs_spiral_part)
+                        arr_shs_spiral_part = []
+                    }
+                    else{
+                        arr_shs_spiral_part = []
+                    }
+
+                }
+            })
+
+        }
+
+        siparate_auger_screw(arr_supp)
+
+
+
+        // console.log(arr_shs_spiral)
+        console.log(arr_shs_spiral)
 
     }
 
