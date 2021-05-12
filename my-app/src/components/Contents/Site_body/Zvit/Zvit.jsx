@@ -82,6 +82,9 @@ const Zvit = () =>{
         el = el.replace(/[\)]/g, " ")
 
         el = el.replace(/ м/gi, 'м');
+        el = el.replace(/.,/gi, '. ,');
+        el = el.replace(/х/gi, '*');
+        
 
         el = el.replace(/[²]/g, "І")
         el = el.replace(/[¿]/g, "ї")
@@ -197,14 +200,6 @@ const Zvit = () =>{
                 }
 
             }
-             
-
-
-
-
-
-
-
 
 
             
@@ -227,7 +222,28 @@ const Zvit = () =>{
             
             data.forEach(its=>{
                 if(its[0].includes('Шнекова спіраль')){
-                    arr_shs_spiral_part.push(its[0]) 
+                    let temp_ellement = its[0]
+                    temp_ellement = temp_ellement.split(/[ ]+/)
+
+
+                    let cut_spirall_size = temp_ellement[3]
+                   
+                    cut_spirall_size = cut_spirall_size.split(/[\*]+/)
+
+                    if(cut_spirall_size.length>3){
+                        cut_spirall_size = cut_spirall_size.slice(0, 3)
+                    }
+
+                    temp_ellement[4] =  parseInt(temp_ellement[4].match(/\d+/))
+
+                   
+
+
+                    arr_shs_spiral_part.push(temp_ellement)
+                    
+                    arr_shs_spiral_part[0][3] = cut_spirall_size  
+
+                    console.log(arr_shs_spiral_part)
                 }
                 else{
                     if (its[0].includes('Кіл-ть') && arr_shs_spiral_part.length>0){
