@@ -82,7 +82,9 @@ const Zvit = () =>{
         el = el.replace(/[\)]/g, " ")
 
         el = el.replace(/ м/gi, 'м');
-        el = el.replace(/.,/gi, '. ,');
+        el = el.replace(" - ", '-');
+        el = el.replace(" -", '-');
+        el = el.replace("- ", '-');
         el = el.replace(/х/gi, '*');
         
 
@@ -151,7 +153,7 @@ const Zvit = () =>{
 
                             add_ellemet_to_arrey(its.__EMPTY_3)
             
-                        }
+                    }
                         else{
                             add_empty_ellement()
                         }
@@ -235,7 +237,7 @@ const Zvit = () =>{
                     }
 
                     temp_ellement[4] =  parseInt(temp_ellement[4].match(/\d+/))
-
+                   
                    
 
 
