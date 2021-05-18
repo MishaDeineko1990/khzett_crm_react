@@ -53,6 +53,25 @@ const Zvit = () =>{
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function debag_encode (data){
 
                 
@@ -80,6 +99,7 @@ const Zvit = () =>{
         el = el.replace(/[\}]/g, " ")
         el = el.replace(/[\()}]/g, " ")
         el = el.replace(/[\)]/g, " ")
+        el = el.replace(".,", '. ,');
 
         el = el.replace(/ м/gi, 'м');
         el = el.replace(" - ", '-');
@@ -101,6 +121,25 @@ const Zvit = () =>{
         return el    
   
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
     function buld_table (data){
@@ -194,6 +233,9 @@ const Zvit = () =>{
 
             }
 
+
+
+
             function add_empty_ellement (){
 
                 if (check_empty==0){
@@ -220,6 +262,24 @@ const Zvit = () =>{
         let arr_shs_spiral = []
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         function siparate_auger_screw(data){
             
             data.forEach(its=>{
@@ -237,6 +297,21 @@ const Zvit = () =>{
                     }
 
                     temp_ellement[4] =  parseInt(temp_ellement[4].match(/\d+/))
+
+
+                    // cheak on left and right
+
+                    if (temp_ellement.includes('ліва'))
+                    {
+                        temp_ellement[6]= "ліва"
+                    }
+                    else{
+                        temp_ellement[6] = "права"
+                    }
+
+                // console.log(temp_ellement[3] +" *** "+ temp_ellement[4] +" *** "+ temp_ellement[5]+" *** "+ temp_ellement[6] )
+
+                // console.log(temp_ellement)
                    
                    
 
@@ -245,30 +320,35 @@ const Zvit = () =>{
                     
                     arr_shs_spiral_part[0][3] = cut_spirall_size  
 
-                    console.log(arr_shs_spiral_part)
+                    // console.log(arr_shs_spiral_part)
                 }
                 else{
                     if (its[0].includes('Кіл-ть') && arr_shs_spiral_part.length>0){
                         arr_shs_spiral_part.push(its[0], its[1], its[2], its[3], its[4], its[5], its[6] )
                         arr_shs_spiral.push(arr_shs_spiral_part)
+
                         arr_shs_spiral_part = []
+                    }
+                    else if(its[0].includes("ВИРОБНИЦТВО ГОТОВОЇ ПРОДУКЦІЇ") || its[0].includes("Козакевич Надія") && arr_shs_spiral_part.length>0){
+                        // arr_shs_spiral_part.push(its[0], its[1], its[2], its[3], its[4], its[5], its[6] )
+                        // arr_shs_spiral.push(arr_shs_spiral_part)
+
+                        console.log("SHe")
                     }
                     else{
                         arr_shs_spiral_part = []
                     }
 
                 }
+                
             })
 
         }
 
         siparate_auger_screw(arr_supp)
 
-
-
-        // console.log(arr_shs_spiral)
-        console.log(arr_shs_spiral)
-
+        
+// 
     }
 
 
