@@ -329,11 +329,12 @@ const Zvit = () =>{
 
                         arr_shs_spiral_part = []
                     }
-                    else if(its[0].includes("ВИРОБНИЦТВО ГОТОВОЇ ПРОДУКЦІЇ") || its[0].includes("Козакевич Надія") && arr_shs_spiral_part.length>0){
-                        // arr_shs_spiral_part.push(its[0], its[1], its[2], its[3], its[4], its[5], its[6] )
-                        // arr_shs_spiral.push(arr_shs_spiral_part)
-
-                        console.log("SHe")
+                    else if(its[0].includes("ВИРОБНИЦТВО ГОТОВОЇ ПРОДУКЦІЇ") && arr_shs_spiral_part.length>0 || its[0].includes("Козакевич Надія") && arr_shs_spiral_part.length>0){
+                        arr_shs_spiral_part.push("", "", "", "", "",  its[2] )
+                        arr_shs_spiral.push(arr_shs_spiral_part)
+                        // console.log(its)
+                        
+                        arr_shs_spiral_part = []
                     }
                     else{
                         arr_shs_spiral_part = []
@@ -343,9 +344,50 @@ const Zvit = () =>{
                 
             })
 
+            out_arrey(arr_shs_spiral)
+
         }
 
+
+        
+        
+
         siparate_auger_screw(arr_supp)
+
+
+
+
+        let finish_arrey = []
+
+
+        function out_arrey(data){
+
+            // console.log(data)
+            let temp_finish_arrey = []
+
+            for (let i = 0; i < data.length; i++) {
+               
+                if (data[i][0][3][0] && data[i][0][3][1] && data[i][0][3][2] && data[i][0][4] && data[i][0][5] && data[i][0][6] && data[i][2] && data[i][4] && data[i][5] && data[i][6]){
+                    temp_finish_arrey.push(data[i][0][3][0], data[i][0][3][1], data[i][0][3][2], data[i][0][4], data[i][0][5], data[i][0][6], data[i][2], data[i][4], data[i][5], data[i][6])
+                } 
+                finish_arrey = finish_arrey.push(temp_finish_arrey) 
+                temp_finish_arrey = []                 
+            }  
+        }
+
+
+
+
+        finish_arrey = finish_arrey.filter(function(item, pos, self) {
+            return self.indexOf(item) == pos;
+        })
+
+
+
+
+
+
+        console.log(finish_arrey)
 
         
 // 
