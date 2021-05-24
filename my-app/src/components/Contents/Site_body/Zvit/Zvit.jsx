@@ -367,11 +367,15 @@ const Zvit = () =>{
 
             for (let i = 0; i < data.length; i++) {
                
-                if (data[i][0][3][0] && data[i][0][3][1] && data[i][0][3][2] && data[i][0][4] && data[i][0][5] && data[i][0][6] && data[i][2] && data[i][4] && data[i][5] && data[i][6]){
-                    temp_finish_arrey.push(data[i][0][3][0], data[i][0][3][1], data[i][0][3][2], data[i][0][4], data[i][0][5], data[i][0][6], data[i][2], data[i][4], data[i][5], data[i][6])
-                } 
-                finish_arrey = finish_arrey.push(temp_finish_arrey) 
-                temp_finish_arrey = []                 
+
+                
+                console.log(data[i][0][3][0]);
+
+                // if (data[i][0][3][0] && data[i][0][3][1] && data[i][0][3][2] && data[i][0][4] && data[i][0][5] && data[i][0][6] && data[i][2] && data[i][4] && data[i][5] && data[i][6]){
+                //     temp_finish_arrey.push(data[i][0][3][0], data[i][0][3][1], data[i][0][3][2], data[i][0][4], data[i][0][5], data[i][0][6], data[i][2], data[i][4], data[i][5], data[i][6])
+                // } 
+                // finish_arrey = finish_arrey.push(temp_finish_arrey) 
+                // temp_finish_arrey = []                 
             }  
         }
 
@@ -387,7 +391,7 @@ const Zvit = () =>{
 
 
 
-        console.log(finish_arrey)
+        // console.log(finish_arrey)
 
         
 // 
