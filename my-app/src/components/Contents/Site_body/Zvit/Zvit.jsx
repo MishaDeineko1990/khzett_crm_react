@@ -357,34 +357,36 @@ const Zvit = () =>{
 
 
 
-        let finish_arrey = []
+        
 
 
         function out_arrey(data){
 
+            let finish_arrey = []
+
             // console.log(data)
-            let temp_finish_arrey = []
+            let temp_finish_arrey = new Array(data.length)
 
             for (let i = 0; i < data.length; i++) {
                
-
                 
-                console.log(data[i][0][3][0]);
 
                 // if (data[i][0][3][0] && data[i][0][3][1] && data[i][0][3][2] && data[i][0][4] && data[i][0][5] && data[i][0][6] && data[i][2] && data[i][4] && data[i][5] && data[i][6]){
-                //     temp_finish_arrey.push(data[i][0][3][0], data[i][0][3][1], data[i][0][3][2], data[i][0][4], data[i][0][5], data[i][0][6], data[i][2], data[i][4], data[i][5], data[i][6])
+                    temp_finish_arrey[i] = [data[i][0][3][0], data[i][0][3][1], data[i][0][3][2], data[i][0][4], data[i][0][5], data[i][0][6], data[i][2], data[i][4], data[i][5], data[i][6]]
+                    temp_finish_arrey[i][4] = parseFloat(temp_finish_arrey[i][4].match(/\d+/))
                 // } 
-                // finish_arrey = finish_arrey.push(temp_finish_arrey) 
-                // temp_finish_arrey = []                 
+                finish_arrey = temp_finish_arrey              
+                        
             }  
+            console.log(finish_arrey);
         }
 
 
 
 
-        finish_arrey = finish_arrey.filter(function(item, pos, self) {
-            return self.indexOf(item) == pos;
-        })
+        // finish_arrey = finish_arrey.filter(function(item, pos, self) {
+        //     return self.indexOf(item) == pos;
+        // })
 
 
 
