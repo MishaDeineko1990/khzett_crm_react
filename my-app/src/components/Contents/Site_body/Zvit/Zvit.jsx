@@ -42,7 +42,7 @@ const Zvit = () =>{
                 var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);   
                 var oJS = XLS.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);   
 
-                $("#my_file_output").html(sCSV);
+                // $("#my_file_output").html(sCSV);
                 buld_table(oJS)
                 // console.log(oJS);
             });
@@ -378,11 +378,50 @@ const Zvit = () =>{
                 finish_arrey = temp_finish_arrey              
                         
             }  
-            console.log(finish_arrey);
+            // console.log(finish_arrey);
+            vue_table_resault(finish_arrey)
         }
 
 
 
+
+
+
+
+        function vue_table_resault(data){
+
+            //setup our table array
+            var tableArr = [
+                ["row 1, cell 1", "row 1, cell 2"],
+                ["row 2, cell 1", "row 2, cell 2"]
+            ]
+
+
+            //create a Table Object
+            let table = document.createElement('table');
+
+            
+            //iterate over every array(row) within tableArr
+            for (let row of data) {
+            //Insert a new row element into the table element
+                table.insertRow();
+            //Iterate over every index(cell) in each array(row)
+                for (let cell of row) {
+            //While iterating over the index(cell)
+            //insert a cell into the table element
+                let newCell = table.rows[table.rows.length - 1].insertCell();
+            //add text to the created cell element
+                newCell.textContent = cell;
+                }
+            }
+            //append the compiled table to the DOM
+            // document.body.appendChild(table);
+
+            table.classList.add('table');
+
+            $("#my_file_output").html(table);
+
+        }
 
         // finish_arrey = finish_arrey.filter(function(item, pos, self) {
         //     return self.indexOf(item) == pos;
