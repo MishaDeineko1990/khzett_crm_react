@@ -378,9 +378,69 @@ const Zvit = () =>{
                 finish_arrey = temp_finish_arrey              
                         
             }  
-            // console.log(finish_arrey);
+
+
+
+
+
+
+
+            price_create(finish_arrey);
+            
             vue_table_resault(finish_arrey)
         }
+
+
+
+
+
+
+
+
+
+
+        function price_create(data){
+
+            // let finish_arrey = []
+
+            // console.log(data)
+            // let temp_finish_arrey = new Array(data.length)
+
+            for (let i = 0; i < data.length; i++) {
+               
+                // console.log("object");
+                // console.log(data[i]);
+                // console.log("*********************");
+
+                let pi = 3.14159265359
+
+                let leng_iner_line = (Integer.parseInt(data[i][1])*pi)*(Integer.parseInt(data[i][1])*pi)+(Integer.parseInt(data[i][2])*Integer.parseInt(data[i][2]))
+                
+                console.log("*********************");
+                console.log(leng_iner_line);
+
+                // if (data[i][0][3][0] && data[i][0][3][1] && data[i][0][3][2] && data[i][0][4] && data[i][0][5] && data[i][0][6] && data[i][2] && data[i][4] && data[i][5] && data[i][6]){
+                    // temp_finish_arrey[i] = [data[i][0][3][0], data[i][0][3][1], data[i][0][3][2], data[i][0][4], data[i][0][5], data[i][0][6], data[i][2], data[i][4], data[i][5], data[i][6]]
+                    // temp_finish_arrey[i][4] = parseFloat(temp_finish_arrey[i][4].match(/\d+/))
+                // } 
+                // finish_arrey = temp_finish_arrey              
+                        
+            }  
+
+
+
+
+
+
+
+
+            
+            // console.log(finish_arrey);
+            // vue_table_resault(finish_arrey)
+        }
+
+
+
 
 
 
