@@ -392,14 +392,14 @@ const Zvit = () =>{
 
 
 
-
+        
 
 
 
 
         function price_create(data){
 
-            // let finish_arrey = []
+            let finish_arrey = []
 
             // console.log(data)
             // let temp_finish_arrey = new Array(data.length)
@@ -433,6 +433,9 @@ const Zvit = () =>{
                 let liva = "ліва"
                 let navivka = ""
                 let navivka_eng = ""
+                let articul = "" + sp_D +  sp_d +  sp_p + sp_S +  navivka_eng
+                let sp_parametrs = "" + sp_D + "*" + sp_d + "*" + sp_p + " S-" + sp_S + " L-"
+
 
                 if (data[i][5].trim() === liva.trim()){
                     navivka = "ліва"
@@ -443,12 +446,11 @@ const Zvit = () =>{
                     navivka_eng = "R"
                 }
 
-                // let name_spirall = "Шнекова спіраль цільнотянута Agro Helix" + " (D - " + sp_D + "мм., d - " + sp_d + "мм., p - " + sp_p + "мм., S - " + sp_S + "мм. " + navivka + " "
-                let name_spirall = "Шнекова спіраль цільнотянута Agro Helix "
+                // let name_spirall = "Шнекова спіраль цільнотянута AgroHelix" + " (D - " + sp_D + "мм., d - " + sp_d + "мм., p - " + sp_p + "мм., S - " + sp_S + "мм. " + navivka + " "
+                let name_spirall_rus = "Шнековая спираль цельнотянутая AgroHelix " + articul + " "
+                let name_spirall_ua = "Шнекова спіраль цільнотянута AgroHelix " + articul + " "
                 
-                let articul = "" + sp_D +  sp_d +  sp_p + sp_S +  navivka_eng
-                 
-                
+
                 // console.log("*********************");
                 // console.log(data[i][0]);
                 // console.log(data[i][1]);
