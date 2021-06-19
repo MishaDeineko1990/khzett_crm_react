@@ -387,7 +387,7 @@ const Zvit = () =>{
 
             price_create(finish_arrey);
             
-            vue_table_resault(finish_arrey)
+            // vue_table_resault(finish_arrey)
         }
 
 
@@ -405,7 +405,9 @@ const Zvit = () =>{
             // let temp_finish_arrey = new Array(data.length)
 
             for (let i = 0; i < data.length; i++) {
-               
+
+                let arrey_temp = []
+        
                 // console.log("object");
                 // console.log(data[i]);
                 // console.log("*********************");
@@ -418,11 +420,13 @@ const Zvit = () =>{
                 let leangth_inner_line_on_metr = leng_iner_line * count_elllem_on_metr
                 let wight_metall = 0.00786
                 let wight_metr_screw_spirall = parseInt(data[i][3]) * hight_shtrips * leangth_inner_line_on_metr * wight_metall 
+                
+                
                 let price_opt = (wight_metr_screw_spirall /1000) * 1.1 * 50 * 5
                 let price_rozdr = (wight_metr_screw_spirall /1000) * 1.1 * 50 * 6
 
-                price_opt = parseInt(price_opt)
-                price_rozdr = parseInt(price_rozdr)
+                price_opt = parseInt(price_opt) + 4
+                price_rozdr = parseInt(price_rozdr) + 4
                 
                 
 
@@ -430,12 +434,13 @@ const Zvit = () =>{
                 let sp_d = data[i][1];
                 let sp_p = data[i][2];
                 let sp_S = data[i][3];
+                let sp_navivka = data[i][5]
+                let sklad = data[i][9];
+                let leangth_sp = data[1][4]
                 let liva = "ліва"
                 let navivka = ""
                 let navivka_eng = ""
-                let articul = "" + sp_D +  sp_d +  sp_p + sp_S +  navivka_eng
-                let sp_parametrs = "" + sp_D + "*" + sp_d + "*" + sp_p + " S-" + sp_S + " L-"
-
+               
 
                 if (data[i][5].trim() === liva.trim()){
                     navivka = "ліва"
@@ -446,10 +451,16 @@ const Zvit = () =>{
                     navivka_eng = "R"
                 }
 
+                let articul = "" + sp_D +  sp_d +  sp_p + sp_S +  navivka_eng
+                let sp_parametrs = "" + sp_D + "*" + sp_d + "*" + sp_p + " S-" + sp_S + " L-" + leangth_sp + "м. " + navivka
+
                 // let name_spirall = "Шнекова спіраль цільнотянута AgroHelix" + " (D - " + sp_D + "мм., d - " + sp_d + "мм., p - " + sp_p + "мм., S - " + sp_S + "мм. " + navivka + " "
                 let name_spirall_rus = "Шнековая спираль цельнотянутая AgroHelix " + articul + " "
                 let name_spirall_ua = "Шнекова спіраль цільнотянута AgroHelix " + articul + " "
-                
+
+
+                arrey_temp = [name_spirall_rus, name_spirall_ua, sp_D, sp_d, sp_p, sp_S, sp_navivka, leangth_sp, sp_parametrs, sklad, price_opt, price_rozdr]
+                finish_arrey.push(arrey_temp)
 
                 // console.log("*********************");
                 // console.log(data[i][0]);
@@ -466,7 +477,7 @@ const Zvit = () =>{
                 // console.log(name_spirall)
                 // console.log(articul)
                 // console.log(data[i][5]) //navivka
-                console.log("    "+ articul + "   " + price_opt + "грн.      " + price_rozdr + "грн.           5")
+                // console.log("    "+ articul + "   " + price_opt + "грн.      " + price_rozdr + "грн.           5")
                 // console.log(price_rozdr)
 
 
@@ -478,6 +489,8 @@ const Zvit = () =>{
                 // finish_arrey = temp_finish_arrey              
                         
             }  
+            vue_table_resault(finish_arrey)
+            // *************** link convert tag table in exell    http://www.convertcsv.com/newsite/html-table-to-csv.htm
         }
 
 
