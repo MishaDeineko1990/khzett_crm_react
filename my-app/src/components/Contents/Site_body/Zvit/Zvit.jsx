@@ -436,7 +436,7 @@ const Zvit = () =>{
                 let sp_S = data[i][3];
                 let sp_navivka = data[i][5]
                 let sklad = data[i][9];
-                let leangth_sp = data[1][4]
+                let leangth_sp = data[i][4]
                 let liva = "ліва"
                 let navivka = ""
                 let navivka_eng = ""
