@@ -449,21 +449,21 @@ const Zvit = () =>{
                 let articul = "" + sp_D +  sp_d +  sp_p + sp_S +  navivka_eng
                  
                 
-                console.log("*********************");
-                console.log(data[i][0]);
-                console.log(data[i][1]);
-                console.log(data[i][2]);
-                console.log(data[i][3]);
-                console.log(data[i][4]);
-                console.log(data[i][5]);
-                console.log(data[i][9]);
+                // console.log("*********************");
+                // console.log(data[i][0]);
+                // console.log(data[i][1]);
+                // console.log(data[i][2]);
+                // console.log(data[i][3]);
+                // console.log(data[i][4]);
+                // console.log(data[i][5]);
+                // console.log(data[i][9]);
                 // console.log(leng_iner_line);
                 // console.log(hight_shtrips)
                 // console.log(count_elllem_on_metr)
                 // console.log(leangth_inner_line_on_metr)
                 // console.log(wight_metr_screw_spirall)
-                console.log(price_opt)
-                console.log(price_rozdr)
+                // console.log(price_opt)
+                // console.log(price_rozdr)
                 // console.log(name_spirall)
                 // console.log(articul)
                 // console.log(data[i][5]) //navivka
