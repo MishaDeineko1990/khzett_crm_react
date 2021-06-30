@@ -385,9 +385,9 @@ const Zvit = () =>{
 
 
 
-            // price_create(finish_arrey);
-            
-            vue_table_resault(finish_arrey)
+            price_create(finish_arrey);
+
+            // vue_table_resault(finish_arrey)
         }
 
 
@@ -402,9 +402,11 @@ const Zvit = () =>{
             let finish_arrey = []
 
             // console.log(data)
-            let temp_finish_arrey = []
+            
 
             for (let i = 0; i < data.length; i++) {
+
+                let temp_finish_arrey = []
                
                 // console.log("object");
                 // console.log(data[i]);
@@ -425,13 +427,16 @@ const Zvit = () =>{
                 price_opt = parseInt(price_opt)
                 price_rozdr = parseInt(price_rozdr)
                 
-                
+               
+                // let sp_D = data[i][0];
+                // let sp_d = data[i][1];
+                // let sp_p = data[i][2];
+                // let sp_S = data[i][3];
+                // let sp_L = data[i][4];
 
-                let sp_D = data[i][0];
-                let sp_d = data[i][1];
-                let sp_p = data[i][2];
-                let sp_S = data[i][3];
-                let sp_L = data[i][4];
+
+                // // console.log("  FDD  " + sp_L2 + "     " + sp_L3 + "     "  + sp_L4 )
+
                 let liva = "ліва"
                 let navivka = ""
                 let navivka_eng = ""
@@ -445,11 +450,20 @@ const Zvit = () =>{
                     navivka_eng = "R"
                 }
 
-                // let name_spirall = "Шнекова спіраль цільнотянута Agro Helix" + " (D - " + sp_D + "мм., d - " + sp_d + "мм., p - " + sp_p + "мм., S - " + sp_S + "мм. " + navivka + " "
-                let name_spirall = "Шнекова спіраль цільнотянута Agro Helix "
+
+                // масив складу прайс
+                temp_finish_arrey.push(data[i][0] +"*"+ data[i][1] +"*"+ data[i][2] +" S-"+ data[i][3]  +" L-"+ data[i][4] +" "+ navivka_eng, data[i][9], price_rozdr, price_opt)
+
+                finish_arrey.push(temp_finish_arrey)
                 
-                // let articul = "" + sp_D +  sp_d +  sp_p + sp_S +  navivka_eng
-                let articul2 = "" + sp_D +"*"+  sp_d +"*"+  sp_p +"*"+ sp_S +" L-"+ +" "+  navivka_eng
+                temp_finish_arrey = [];
+
+
+                // // let name_spirall = "Шнекова спіраль цільнотянута Agro Helix" + " (D - " + sp_D + "мм., d - " + sp_d + "мм., p - " + sp_p + "мм., S - " + sp_S + "мм. " + navivka + " "
+                // let name_spirall = "Шнекова спіраль цільнотянута Agro Helix "
+                
+                // // let articul = "" + sp_D +  sp_d +  sp_p + sp_S +  navivka_eng
+                // let articul2 = "" + sp_D +"*"+  sp_d +"*"+  sp_p +"*"+ sp_S +" L-"+ +" "+  navivka_eng
                  
                 
                 // console.log("*********************");
@@ -460,6 +474,9 @@ const Zvit = () =>{
                 // console.log(data[i][4]);
                 // console.log(data[i][5]);
                 // console.log(data[i][9]);
+
+
+
                 // console.log(leng_iner_line);
                 // console.log(hight_shtrips)
                 // console.log(count_elllem_on_metr)
@@ -468,9 +485,9 @@ const Zvit = () =>{
                 // console.log(price_opt)
                 // console.log(price_rozdr)
                 // console.log(name_spirall)
-                // console.log(articul)
+                // // console.log(articul)
                 // console.log(data[i][5]) //navivka
-                // console.log("    "+ articul + "   " + price_opt + "грн.      " + price_rozdr + "грн.           5")
+                // // console.log("    "+ articul + "   " + price_opt + "грн.      " + price_rozdr + "грн.           5")
                 // console.log(price_rozdr)
 
 
@@ -482,6 +499,9 @@ const Zvit = () =>{
                 // finish_arrey = temp_finish_arrey              
                         
             }  
+
+            vue_table_resault(finish_arrey)
+
         }
 
 
