@@ -385,7 +385,7 @@ const Zvit = () =>{
 
 
 
-            price_create(finish_arrey);
+            // price_create(finish_arrey);
             
             vue_table_resault(finish_arrey)
         }
@@ -399,10 +399,10 @@ const Zvit = () =>{
 
         function price_create(data){
 
-            // let finish_arrey = []
+            let finish_arrey = []
 
             // console.log(data)
-            // let temp_finish_arrey = new Array(data.length)
+            let temp_finish_arrey = []
 
             for (let i = 0; i < data.length; i++) {
                
@@ -418,6 +418,7 @@ const Zvit = () =>{
                 let leangth_inner_line_on_metr = leng_iner_line * count_elllem_on_metr
                 let wight_metall = 0.00786
                 let wight_metr_screw_spirall = parseInt(data[i][3]) * hight_shtrips * leangth_inner_line_on_metr * wight_metall 
+                
                 let price_opt = (wight_metr_screw_spirall /1000) * 1.1 * 50 * 5
                 let price_rozdr = (wight_metr_screw_spirall /1000) * 1.1 * 50 * 6
 
@@ -430,6 +431,7 @@ const Zvit = () =>{
                 let sp_d = data[i][1];
                 let sp_p = data[i][2];
                 let sp_S = data[i][3];
+                let sp_L = data[i][4];
                 let liva = "ліва"
                 let navivka = ""
                 let navivka_eng = ""
@@ -446,7 +448,8 @@ const Zvit = () =>{
                 // let name_spirall = "Шнекова спіраль цільнотянута Agro Helix" + " (D - " + sp_D + "мм., d - " + sp_d + "мм., p - " + sp_p + "мм., S - " + sp_S + "мм. " + navivka + " "
                 let name_spirall = "Шнекова спіраль цільнотянута Agro Helix "
                 
-                let articul = "" + sp_D +  sp_d +  sp_p + sp_S +  navivka_eng
+                // let articul = "" + sp_D +  sp_d +  sp_p + sp_S +  navivka_eng
+                let articul2 = "" + sp_D +"*"+  sp_d +"*"+  sp_p +"*"+ sp_S +" L-"+ +" "+  navivka_eng
                  
                 
                 // console.log("*********************");
