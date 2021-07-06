@@ -385,9 +385,9 @@ const Zvit = () =>{
 
 
 
-            price_create(finish_arrey);
+            // price_create(finish_arrey);
 
-            // vue_table_resault(finish_arrey)
+            vue_table_resault(finish_arrey)
         }
 
 
