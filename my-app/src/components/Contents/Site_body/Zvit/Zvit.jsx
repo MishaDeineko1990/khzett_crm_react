@@ -373,9 +373,53 @@ const Zvit = () =>{
 
                 // if (data[i][0][3][0] && data[i][0][3][1] && data[i][0][3][2] && data[i][0][4] && data[i][0][5] && data[i][0][6] && data[i][2] && data[i][4] && data[i][5] && data[i][6]){
                     temp_finish_arrey[i] = [data[i][0][3][0], data[i][0][3][1], data[i][0][3][2], data[i][0][4], data[i][0][5], data[i][0][6], data[i][2], data[i][4], data[i][5], data[i][6]]
-                    temp_finish_arrey[i][4] = parseFloat(temp_finish_arrey[i][4].match(/\d+/))
+                    // temp_finish_arrey[i][4] = parseFloat(temp_finish_arrey[i][4].match(/\d+/))
+                    
+                    
+                    
+                    temp_finish_arrey[i][4] = temp_finish_arrey[i][4].replace(",L-", '');
+                    temp_finish_arrey[i][4] = temp_finish_arrey[i][4].replace("L-", '');
+                    temp_finish_arrey[i][4] = temp_finish_arrey[i][4].replace("L", '');
+                    temp_finish_arrey[i][4] = temp_finish_arrey[i][4].replace(" ", '');
+                    temp_finish_arrey[i][4] = temp_finish_arrey[i][4].replace(".", ',');
+                    temp_finish_arrey[i][4] = temp_finish_arrey[i][4].replace("м", '');
+                    temp_finish_arrey[i][4] = temp_finish_arrey[i][4].replace("м", '');
+                    temp_finish_arrey[i][4] = temp_finish_arrey[i][4].replace("1,1", '1 1');
+                    temp_finish_arrey[i][4] = temp_finish_arrey[i][4].replace(",0", '');
+
+                    if (temp_finish_arrey[i][4][0]==",")
+                        {
+                            temp_finish_arrey[i][4] = temp_finish_arrey[i][4].slice(1)
+                        }
+
+                    if (temp_finish_arrey[i][4][temp_finish_arrey[i][4].length-1]==",")
+                        {
+                            temp_finish_arrey[i][4] = temp_finish_arrey[i][4].slice(-1)
+                        }
+                    
+                   
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".000", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".100", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".200", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".300", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".400", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".500", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".600", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".700", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".800", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".800", "");
+                    temp_finish_arrey[i][6] = temp_finish_arrey[i][6].replace(".", ",");
+
+
+
+
                 // } 
-                finish_arrey = temp_finish_arrey              
+                finish_arrey = temp_finish_arrey       
+                console.log(temp_finish_arrey[i][6]);   
+                
+                
+                
+               
                         
             }  
 
@@ -385,9 +429,9 @@ const Zvit = () =>{
 
 
 
-            // price_create(finish_arrey);
+            price_create(finish_arrey);
 
-            vue_table_resault(finish_arrey)
+            // vue_table_resault(finish_arrey)
         }
 
 
@@ -434,6 +478,7 @@ const Zvit = () =>{
                 // let sp_S = data[i][3];
                 // let sp_L = data[i][4];
 
+                // console.log(sp_L)
 
                 // // console.log("  FDD  " + sp_L2 + "     " + sp_L3 + "     "  + sp_L4 )
 
