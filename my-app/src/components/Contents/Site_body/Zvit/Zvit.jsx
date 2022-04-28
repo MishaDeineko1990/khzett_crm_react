@@ -470,7 +470,29 @@ const Zvit = () =>{
 
                 price_opt = parseInt(price_opt)
                 price_rozdr = parseInt(price_rozdr)
-                
+
+                                
+
+                function to_pdv_price (data){
+
+                    if((data%3)==1){
+                        return data += 2; 
+                    }
+
+
+                    if((data%3)==2){
+                        return data += 1; 
+                    }
+
+                    return data
+
+                    // console.log(data%3)
+
+                }
+
+              
+                price_opt = to_pdv_price(price_opt)
+                price_rozdr = to_pdv_price(price_rozdr)
                
                 // let sp_D = data[i][0];
                 // let sp_d = data[i][1];
@@ -497,10 +519,19 @@ const Zvit = () =>{
 
 
                 // масив складу прайс
-                temp_finish_arrey.push(data[i][0] +"*"+ data[i][1] +"*"+ data[i][2] +" S-"+ data[i][3]  +" L-"+ data[i][4] +" "+ navivka_eng, data[i][9], price_rozdr, price_opt)
+                temp_finish_arrey.push(data[i][0] +"*"+ data[i][1] +"*"+ data[i][2] +" S-"+ data[i][3]  +" L-"+ data[i][4] +" "+ navivka_eng, parseInt(data[i][9]), price_rozdr, price_opt)
 
-                finish_arrey.push(temp_finish_arrey)
+                if(temp_finish_arrey[1]==" "){
+                    temp_finish_arrey[1]=""
+                }
                 
+                if(temp_finish_arrey[1]){
+                    finish_arrey.push(temp_finish_arrey)
+                }
+
+
+                console.log(Boolean(temp_finish_arrey[1]))
+                    
                 temp_finish_arrey = [];
 
 
