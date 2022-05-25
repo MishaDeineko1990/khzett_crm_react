@@ -465,8 +465,8 @@ const Zvit = () =>{
                 let wight_metall = 0.00786
                 let wight_metr_screw_spirall = parseInt(data[i][3]) * hight_shtrips * leangth_inner_line_on_metr * wight_metall 
                 
-                let price_opt = (wight_metr_screw_spirall /1000) * 1.1 * 50 * 5
-                let price_rozdr = (wight_metr_screw_spirall /1000) * 1.1 * 50 * 6
+                let price_opt = (wight_metr_screw_spirall /1000) * 1.1 * 52 * 5
+                let price_rozdr = (wight_metr_screw_spirall /1000) * 1.1 * 52 * 6
 
                 price_opt = parseInt(price_opt)
                 price_rozdr = parseInt(price_rozdr)
