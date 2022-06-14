@@ -415,7 +415,7 @@ const Zvit = () =>{
 
                 // } 
                 finish_arrey = temp_finish_arrey       
-                console.log(temp_finish_arrey[i][6]);   
+                // console.log(temp_finish_arrey[i][6]);   
                 
                 
                 
@@ -461,12 +461,13 @@ const Zvit = () =>{
                 let leng_iner_line = Math.sqrt((parseInt(data[i][1])*pi)*(parseInt(data[i][1])*pi)+(parseInt(data[i][2])*parseInt(data[i][2])))
                 let hight_shtrips = (parseInt(data[i][0])-parseInt(data[i][1]))/2
                 let count_elllem_on_metr = 1000/parseInt(data[i][2])
-                let leangth_inner_line_on_metr = leng_iner_line * count_elllem_on_metr
+                let leangth_inner_line_on_metr = leng_iner_line * count_elllem_on_metr * 1.3
                 let wight_metall = 0.00786
                 let wight_metr_screw_spirall = parseInt(data[i][3]) * hight_shtrips * leangth_inner_line_on_metr * wight_metall 
                 
                 let price_opt = (wight_metr_screw_spirall /1000) * 1.1 * 52 * 5
                 let price_rozdr = (wight_metr_screw_spirall /1000) * 1.1 * 52 * 6
+
 
                 price_opt = parseInt(price_opt)
                 price_rozdr = parseInt(price_rozdr)
@@ -530,7 +531,7 @@ const Zvit = () =>{
                 }
 
 
-                console.log(Boolean(temp_finish_arrey[1]))
+                // console.log(Boolean(temp_finish_arrey[1]))
                     
                 temp_finish_arrey = [];
 
